@@ -1,0 +1,33 @@
+[기본-초기화 매개변수(Default Parameter)]
+
+타입스크립트에서는 값을 제공하지 않거나, undefined로 설정한 매개변수의 값에 기본 값을 할당할 수 있습니다.
+
+간단한 예제를 통해 확인해 봅시다.
+
+1. 지시사항
+say 메소드의 매개변수 lastWord를 Default Parameter로 수정하여 코드가 정상 동작하게 수정하세요.
+Default Parameter는 타입스크립트로 설정합니다.
+
+// lastWord를 Default Parameter 형식으로 수정해주세요.
+function say(firstWord: string, lastWord: string = "타입스크립트") {  
+  return firstWord + " " + lastWord;
+}
+
+console.log(say("엘리스")) // "엘리스 타입스크립트" 출력
+
+[나머지 매개변수 (Rest Parameters)]
+
+생략 부호 ... 뒤의 이름으로 전달된 인자 배열을 빌드하여 함수에서 사용 가능합니다.
+나머지 매개변수는 선택적 매개변수들의 수를 무한히 선언할 수 있습니다.
+
+1. 지시사항
+makeWord 메소드의 매개변수 restOfChar를 rest parameter로 수정하여 코드가 정상 동작하게 수정하세요.
+
+// restOfChar를 rest parameters형식으로 수정해주세요
+function makeWord(firstChar: string,...restOfChar: string[]) {  
+  return firstChar + restOfChar.join("")
+}
+
+let word = makeWord("타", "입", "스", "크", "립", "트")
+
+console.log(word) // 타입스크립트 출력
