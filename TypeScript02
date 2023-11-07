@@ -1,0 +1,82 @@
+[Enum]
+enum은 특정 값(상수)들의 집합입니다.
+
+장점
+코드가 단순해지며, 가독성이 좋습니다.
+인스턴스 생성과 상속을 방지하여 상수값의 타입안정성이 보장됩니다.
+
+지시사항
+1.지금 예제코드는 컴파일시 에러가 발생합니다.
+2. Car enum을 이용해서 taxi 변수에 알맞은 값을 할당해서 정상동작할수 있게 수정해주세요.
+
+// enum 선언
+enum Car { 
+    BUS = "bus", 
+    TAXI = "taxi", 
+    SUV = "suv" 
+}
+
+// enum Car를 이용해서 taxi값을 할당해주세요.
+const taxi:Car = Car.TAXI;
+console.log(taxi); // TAXI 출력
+
+[Partial]
+Utility types 중 하나인 Partial은 프로퍼티를 선택적으로 만드는 타입으로 구성할 수 있습니다.
+
+지시사항
+1. updateTodo 메소드의 매개변수 obj 타입 Todo를 Utitly types를 이용하여 코드가 정상 동작하게 수정하세요.
+
+interface Todo {
+  title: string
+  description: string
+}
+
+// obj매개변수 타입에 Partial Utility types을 추가해주세요
+function updateTodo(obj: Partial<Todo>) { 
+  return obj;
+}
+
+const result = updateTodo({
+  title: "title",
+})
+
+console.log(result); // { title: 'title' } 출력
+
+[Omit]
+Utility types 중 하나인 Omit은 모든 프로퍼티를 선택한 다음 K를 제거한 타입을 구성하기 위해 사용합니다.
+
+1. 지시사항
+타입 TodoPreview에 할당된 Todo인터페이스를 Utitly types을 이용하여 코드가 정상 동작하게 수정하세요.
+
+interface Todo {
+  title: string
+  description: string
+  completed: boolean
+}
+
+// Omit을 이용해 description 프로퍼티를 제외해봅니다.
+type TodoPreview = Omit<Todo, "description">
+
+const todo: TodoPreview = {
+  title: "Clean room",
+  completed: false,  
+}
+
+[Pick]
+Utility types 중 하나인 Pick은 프로퍼티 K의 집합을 선택해 타입을 구성 합니다.
+
+1. 지시사항
+타입 TodoPreview 에 할당된 Todo interface를 Utitly types를 이용하여 코드가 정상 동작하게 수정하세요.
+
+interface Todo {
+  title: string
+  description: string
+  completed: boolean
+}
+
+// Pick을 이용해 title 프로퍼티를 포함해봅니다..
+type TodoPreview = Pick<Todo,"title">
+
+const todo: TodoPreview = {
+  title: "Clean room"  
+}
